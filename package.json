@@ -1,0 +1,33 @@
+{
+  "name": "backbone.lazify",
+  "version": "0.0.0",
+  "description": "Call any method lazily",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dakuan/backbone.lazify.git"
+  },
+  "author": {
+    "name": "Dom Barker",
+    "email": "dom@terriertech.io",
+    "url": "http://www.terriertech.io"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dakuan/backbone.lazify/issues"
+  },
+  "homepage": "https://github.com/Dakuan/backbone.lazify",
+  "dependencies": {
+    "backbone": "^1.2.2",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "babel": "^5.8.21",
+    "chai": "^3.2.0",
+    "chai-spies": "^0.7.0",
+    "mocha": "^2.2.5"
+  }
+}
