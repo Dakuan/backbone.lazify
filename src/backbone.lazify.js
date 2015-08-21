@@ -6,10 +6,8 @@ var DEFAULT_DEBOUNCE = 500;
 const Lazify = Backbone.Lazify = {
   DEFAULT_DEBOUNCE,
 
-  lazy() {
+  lazy(fnName, ...args) {
     this._lazified = this._lazified || {};
-    const fnName = _.head(arguments),
-      args = _.rest(arguments);
 
     if (fnName) {
       // invoke if already lazified
