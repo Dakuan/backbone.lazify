@@ -4,8 +4,9 @@ import Backbone from "backbone";
 var DEFAULT_DEBOUNCE = 500;
 
 const Lazify = Backbone.Lazify = {
-  defaultDebounce: DEFAULT_DEBOUNCE,
-  lazy: function() {
+  DEFAULT_DEBOUNCE,
+
+  lazy() {
     this._lazified = this._lazified || {};
     const fnName = _.head(arguments),
       args = _.rest(arguments);

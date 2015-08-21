@@ -16,11 +16,11 @@ const TestModel = Backbone.Model.extend({
     slowMethod: 1000
   },
 
-  slowMethod: function(next) {
+  slowMethod(next) {
     next(new Date().getTime());
   },
 
-  testMethod: function(message, next) {
+  testMethod(message, next) {
     if (next && _.isFunction(next)) {
       next(new Date().getTime());
     }
@@ -69,7 +69,7 @@ describe("Backbone.Lazify", () => {
           let start = new Date().getTime();
           subject.lazy('testMethod', 'foo', end => {
             const time = end - start;
-            expect(time).to.be.closeTo(Backbone.Lazify.defaultDebounce, 10);
+            expect(time).to.be.closeTo(Backbone.Lazify.DEFAULT_DEBOUNCE, 10);
             done();
           });
         });
