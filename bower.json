@@ -1,0 +1,24 @@
+{
+  "name": "backbone.lazify",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Dakuan/backbone.lazify",
+  "authors": [
+    "Dom Barker <dom@terriertech.io>"
+  ],
+  "main": "dist/backbone.lazify",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/components",
+    "test",
+    "tests"
+  ]
+}
