@@ -1,4 +1,9 @@
 # Backbone.Lazify
+
+<img src="http://i.giphy.com/VqrFSofgoiuR2.gif" width="100%" />
+
+## Why do today what you can do tomorrow?
+
 Sometimes you want to wait for things to calm down before invoking a function. Maybe you want to persist a value after a user has finished dragging around a color picker or some other rapid event. You don't want to keep hammmering the server so you reach for underscores' debounce method. 
 
 This module allows you to called debounced methods on your Backbone models (or other things if you wish) with a bit less boilerplate.
