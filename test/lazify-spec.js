@@ -86,4 +86,20 @@ describe("Backbone.Lazify", () => {
       });
     });
   });
+
+  describe("#lazified", function() {
+    describe("when there is no lazified function", function() {
+      it("should create one", function() {
+        subject.lazified("testMethod");
+        expect(subject._lazified["testMethod"]).to.be.a("function");
+      });
+    });
+    describe("when there is a lazified function", function() {
+      it("should return it", function() {
+        subject.lazy("testMethod");
+        let lazified = subject.lazified("testMethod");
+        expect(lazified).to.equal(subject._lazified["testMethod"]);
+      });
+    });
+  });
 });

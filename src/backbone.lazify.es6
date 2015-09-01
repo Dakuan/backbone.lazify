@@ -3,37 +3,54 @@ import Backbone from "backbone";
 
 var DEFAULT_DEBOUNCE = 500;
 
+const createLazifiedHash = function(ctx) {
+  ctx._lazified = ctx._lazified || {};
+};
+
+const createLazifiedFunction = function(ctx, fnName) {
+    // fn exists on model
+    const original = ctx[fnName];
+    if (original && _.isFunction(original)) {
+
+      // create and store debounced version
+      let debounce = DEFAULT_DEBOUNCE;
+      if (ctx.lazify && ctx.lazify[fnName]) {
+        debounce = ctx.lazify[fnName];
+      }
+      const lazified = _.debounce(original, debounce);
+      ctx._lazified[fnName] = lazified;
+    } else {
+      throw new Error(`No method ${fnName} to lazify`);
+    }
+};
+
+
 const Lazify = Backbone.Lazify = {
   DEFAULT_DEBOUNCE,
 
   lazy(fnName, ...args) {
-    this._lazified = this._lazified || {};
+    createLazifiedHash(this);
 
     if (fnName) {
       // invoke if already lazified
-      if (this._lazified[fnName]) {
-        this._lazified[fnName].apply(this, args);
+      if (this.lazified(fnName)) {
+        return this._lazified[fnName].apply(this, args);
       }
-      // fn exists on model
-      const original = this[fnName];
-      if (original && _.isFunction(original)) {
 
-        // create and store debounced version
-        let debounce = DEFAULT_DEBOUNCE;
-        if (this.lazify && this.lazify[fnName]) {
-          debounce = this.lazify[fnName];
-        }
-        const lazified = _.debounce(original, debounce);
-        this._lazified[fnName] = lazified;
+      createLazifiedFunction(this, fnName);
 
-        // invoke!
-        this._lazified[fnName].apply(this, args);
-      } else {
-        throw new Error(`No method ${fnName} to lazify`);
-      }
+      // invoke!
+      return this._lazified[fnName].apply(this, args);
+
     } else {
       throw new Error('#lazy requires a function name to call');
     }
+  },
+
+  lazified(fnName) {
+    createLazifiedHash(this);
+    createLazifiedFunction(this, fnName);
+    return this._lazified[fnName];
   }
 };
 
