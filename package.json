@@ -6,9 +6,9 @@
   "scripts": {
     "test": "mocha --compilers js:babel/register",
     "build": "npm run build:src && npm run build:min",
-    "prepublish" : "npm run build",
-    "build:src": "mkdir -p ./dist && babel src/backbone.lazify.es6 | umd backbone.lazify > ./dist/backbone.lazify.js",
-    "build:min": "mkdir -p ./dist && babel src/backbone.lazify.es6 | umd backbone.lazify | uglifyjs > ./dist/backbone.lazify.min.js"
+    "prepublish": "npm run build",
+    "build:src": "babel src/backbone.lazify.es6 | umd backbone.lazify > ./dist/backbone.lazify.js",
+    "build:min": "babel src/backbone.lazify.es6 | umd backbone.lazify | uglifyjs > ./dist/backbone.lazify.min.js"
   },
   "repository": {
     "type": "git",
