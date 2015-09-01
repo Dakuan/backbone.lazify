@@ -1,5 +1,5 @@
 # Backbone.Lazify
-
+[![Circle CI](https://circleci.com/gh/Dakuan/backbone.lazify.svg?style=svg)](https://circleci.com/gh/Dakuan/backbone.lazify)
 <img src="http://i.giphy.com/4EhoSLz57nG8g.gif" width="100%" />
 
 ## Why do today what you can do tomorrow?
