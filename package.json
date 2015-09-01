@@ -1,6 +1,6 @@
 {
   "name": "backbone.lazify",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Call any method lazily",
   "main": "dist/backbone.lazify.js",
   "scripts": {
