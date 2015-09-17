@@ -33,7 +33,7 @@ const Lazify = Backbone.Lazify = {
 
     if (fnName) {
       // invoke if already lazified
-      if (this.lazified(fnName)) {
+      if (this._lazified[fnName]) {
         return this._lazified[fnName].apply(this, args);
       }
 
